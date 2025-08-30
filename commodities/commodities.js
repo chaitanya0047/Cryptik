@@ -3,8 +3,6 @@ class MetalList {
     this.data = data;
     this.container = document.querySelector(containerSelector);
   }
-
-
   rendering() {
     this.data.forEach((metal) => {
       const metalItemContainer = document.createElement("div");
@@ -37,7 +35,7 @@ class MetalList {
       const price = document.createElement("strong");
       price.classList.add("metal-price");
       console.log(metal.price);
-      price.innerText = metal.price;
+      price.innerHTML = metal.price;
 
       imgContainer.appendChild(icon);
       metalIconContainer.appendChild(imgContainer);
@@ -54,19 +52,22 @@ class MetalList {
     try {
       const responce = await fetch(metalUrl);
       const data = await responce.json();
+      // console.log(data);
+      
       return data;
     } catch (Error) {
       console.log(`API Failed ${Error}`);
     }
   };
+  
 
-  const setMetalPrice=()=>{
-    metals.forEach(async (item)=>{
-      const result=await getMetalPrice(item.symbol);
-      item.price= result.price;
-      
-    })  
+  const setMetalPrice = async () => {
+  for (const item of metals) {
+    const result = await getMetalPrice(item.symbol);
+    item.price = result.price;
   }
+};
+
 const metals = [
   {
     icon: "./Assets/Commodities/Icons/GoldIcon.svg",
@@ -89,8 +90,11 @@ const metals = [
 ];
 
 const metalList = new MetalList(metals, ".metalContainer");
-setMetalPrice();
-metalList.rendering();
+const init = async () => {
+  await setMetalPrice();   
+  metalList.rendering();   
+};
+init();
 const imgset = document.getElementsByClassName("metal-leftside-container")[1];
 const img = imgset.querySelector("div");
-img.style.filter = "grayscale(100%)"; // example filter
+img.style.filter = "grayscale(100%)";

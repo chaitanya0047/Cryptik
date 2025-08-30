@@ -3,7 +3,6 @@ class CurrencyList {
     this.data = data;
     this.container = document.querySelector(containerSelector);
   }
-
   render() {
     this.data.forEach((currency) => {
       const currencyItemContainer = document.createElement("div");
@@ -13,8 +12,6 @@ class CurrencyList {
       const currencyLeftContainer = document.createElement("div");
       currencyLeftContainer.classList.add("currency-left-container");
       currencyItemContainer.appendChild(currencyLeftContainer);
-
-
 
       const icon = document.createElement("img");
       icon.classList.add("currency-icon");
@@ -51,25 +48,18 @@ const getCurrencies = async (currency) => {
   const currencyUrl = `https://api.twelvedata.com/exchange_rate?symbol=${currency}/INR&apikey=03b7eab69603427ba4c569dd4b906ab5`;
   try {
     const response = await fetch(currencyUrl);
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     return data;
   } catch (err) {
     console.error(`API Failed: ${err.message}`);
-    return null;
   }
 };
-
-const setCurrencies=()=>{
-  currencies.forEach(async (item)=>{
-    const result=await getCurrencies(item.symbol);
-    console.log(result);
-    
-    item.price="₹"+result.rate;
-
-  })
-}
-
+const setCurrencies = async () => {
+  for (const item of currencies) {
+    const result = await getCurrencies(item.symbol);
+    item.price = "₹" + result.rate;
+  }
+};
 const currencies = [
   {name: "Euro", symbol: "EUR", price: "" },
   {name: "Doller", symbol: "USD", price: "" },
@@ -77,13 +67,12 @@ const currencies = [
   {name: "British Pound", symbol: "GBP", price: "" },
   {name: "Russian Ruble", symbol: "RUB", price: "" },
 ];
-
 const currencyList = new CurrencyList(currencies,".currencyContainer");
-// getCurrencies("JPY");
-setCurrencies();
-console.log(currencies);
-
-currencyList.render();
+const startApp = async () => {
+  await setCurrencies();      
+  currencyList.render();       
+};
+startApp();
 
 
 

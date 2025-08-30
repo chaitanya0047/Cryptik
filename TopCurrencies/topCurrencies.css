@@ -10,7 +10,6 @@
     gap: 16px;
 
 }
-
 .currencyHeading {
     background: var(--gradient-heading);
     -webkit-background-clip: text;
@@ -21,15 +20,11 @@ font-style: normal;
 font-weight: 600;
 line-height: 100%; /* 20px */
 letter-spacing: -0.4px;
-
 }
-
 .currencyContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
-
-
 }
 
 .currency-Item-Container {
@@ -39,7 +34,6 @@ letter-spacing: -0.4px;
     border-bottom: 1px solid rgba(44, 44, 44, 0.88);
     padding: 10px 10px;
 }
-
 .currency-left-container {
     width: 36%;
     display: flex;
@@ -48,27 +42,23 @@ letter-spacing: -0.4px;
     gap: 24px;
 
 }
-
 .symbol-container {
     width: 35%;
     display: flex;
     align-items: start;
     justify-content: start;
 }
-
 .price-container {
     width: 25%;
     display: flex;
     align-items: center;
     justify-content: start;
 }
-
 .currency-symbol {
     font-size: 12px;
     font-weight: 500;
     color: #667085;
 }
-
 .currency-name {
     font-size: 12px;
     font-weight: 500;
@@ -77,4 +67,8 @@ letter-spacing: -0.4px;
 .currency-price {
     font-size: 14px;
     font-weight: 700;
+}
+.currency-icon{
+    width: 34px;
+    height: 34px;
 }
