@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./Controller/sidebar.css" />
+    <link rel="stylesheet" href="./InfiniteScroller/infiniteScroller.css" />
+    <link rel="stylesheet" href="./navBar/nav.css" />
+    <link rel="stylesheet" href="./card/card.css" />
+    <link rel="stylesheet" href="./TopCurrencies/topCurrencies.css" />
+    <link rel="stylesheet" href="./commodities/commodities.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Koulen&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Koulen&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <div class="mainContainer">
+        <!-- LeftContainer -->
+
+        <div class="leftside">
+            <div class="logocontainer">
+                <img src="./Assets/Sidebar/logo.svg" alt="" class="logo" />
+            </div>
+            <button class="sidebar-toggle">
+                <img src="./Assets/Sidebar/Icons/Toggle.svg" alt="">
+            </button>
+            <div class="sidebar"></div>
+        </div>
+
+        <!-- rightContainer -->
+        <div class="rightContainer">
+            <div class="navbar">
+                <div class="leftsidenav">
+                    <p class="dashboard"><b>DASHBOARD</b></p>
+                </div>
+
+                <div class="middle">
+                    <div class="category">
+                        <label>All Category</label>
+                        <select class="select" id="">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div class="searchcontainer">
+                        <input class="search" type="search" placeholder="search for coin.." />
+                        <img src="./Assets/Navbar/Icons/SearchIcon.svg" alt="SearchIcon" class="searchIcon" />
+                    </div>
+                </div>
+
+                <div class="rightside">
+                    <img class="profileimage" src="https://avatar.iran.liara.run/public/boy" alt="ProfileCard">
+                    <p class="nav-text">Chaitanya Ganesh</p>
+                </div>
+            </div>
+            <!-- infiniteScroller -->
+
+            <div class="marquee marquee--8 marquee--right-to-left container" style="width: 100%; margin: 2% 0"></div>
+            <!-- Grid -->
+            <div class="grid">
+                <!-- Graph -->
+                <div class="graph"></div>
+
+                <!-- Card -->
+
+                <div class="cardContainer">
+
+                    <div class="cardFront">
+                        <div class="top">
+                            <div class="first">
+                                <img src="./Assets/Card/Images/CardLogo.svg" alt="" class="cryptlogo" />
+
+                                <img src="./Assets/Card/Images/SimCardChip.png" alt="" class="simlogo1" />
+                            </div>
+                            <div class="second">
+                                <p>5299 XXXX XXXX 9875</p>
+                                <div class="three">
+                                    <p>11/29</p>
+                                    <p>***</p>
+                                    <img class="eye" src="./Assets/Card/Icons/EyeIcon.svg" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <p id="">KUMMARI CHAITANYA</p>
+                            <img class="visalogo" src="./Assets/Card/Images/CardName.png" alt="" />
+                        </div>
+                    </div>
+
+                    <div class="cardBack"></div>
+
+
+                </div>
+
+                <!-- TopCurrencies -->
+                <div class="topCurrencies">
+                    <h4 class="currencyHeading">Top Currencies</h4>
+                    <div class="currencyContainer"></div>
+                </div>
+
+                <!-- MetalPrices -->
+                <div class="metalContainer"></div>
+            </div>
+        </div>
+    </div>
+    <script src="./Controller/sideNavController.js"></script>
+    <script src="./InfiniteScroller/infiniteScroller.js"></script>
+    <script src="./TopCurrencies/topCurrencies.js"></script>
+    <script src="./commodities/commodities.js"></script>
+</body>
+
+</html>

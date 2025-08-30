@@ -1,0 +1,78 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "inter";
+}
+
+body,
+html {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--background);
+  /* overflow: hidden; */
+  /* color: var(--color-text); */
+}
+
+:root {
+  --color-primary: #236AEE;
+  --color-text: #999999;
+  --background: #131313;
+  --gradient-heading: linear-gradient(90deg, #363636 0%, #706F6F 100%);
+
+}
+
+.mainContainer {
+  display: flex;
+  width: 100%;
+}
+
+.leftside {
+  display: flex;
+  flex-direction: column;
+  width: 18%;
+  height: 100vh;
+  border-right: 1px solid var(--color-text);
+  padding: 30px 0 72px 63px;
+  position: relative;
+}
+
+.rightContainer {
+  width: 82%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  padding: 30px 40px 20px 20px;
+  min-width: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns:repeat(3,1fr) ;
+  grid-template-rows:repeat(2,1fr) 100px ;
+  width: 100%;
+  row-gap: 14px;
+  column-gap: 14px;
+
+  grid-template-areas: 
+  "box1 box1 box2"
+  "box1 box1 box3"
+  "box4 box4 box3"
+;
+
+}
+.graph{
+  background-color: red;
+  grid-area: box1;
+}
+.cardcontainer{
+
+  grid-area: box2;
+}
+.topCurrencies{
+  grid-area: box3;
+}
+.metalContainer{
+  grid-area: box4;
+}

@@ -1,0 +1,96 @@
+class MetalList {
+  constructor(data, containerSelector) {
+    this.data = data;
+    this.container = document.querySelector(containerSelector);
+  }
+
+
+  rendering() {
+    this.data.forEach((metal) => {
+      const metalItemContainer = document.createElement("div");
+      metalItemContainer.classList.add("metalItemContainer");
+      this.container.appendChild(metalItemContainer);
+
+      const metalIconContainer = document.createElement("div");
+      metalIconContainer.classList.add("metal-leftside-container");
+      metalItemContainer.appendChild(metalIconContainer);
+
+      const imgContainer = document.createElement("div");
+      imgContainer.classList.add("img-container");
+
+      const icon = document.createElement("img");
+      icon.classList.add("metal-icon");
+      icon.setAttribute("src", metal.icon);
+      icon.setAttribute("alt", metal.name);
+
+      const metalInfoContainer = document.createElement("div");
+      metalInfoContainer.classList.add("metal-info");
+
+      const name = document.createElement("h3");
+      name.classList.add("metal-name");
+      name.innerText = metal.name;
+      const symbol = document.createElement("p");
+      symbol.classList.add("metal-symbol");
+      symbol.innerText = metal.symbol;
+      
+      
+      const price = document.createElement("strong");
+      price.classList.add("metal-price");
+      console.log(metal.price);
+      price.innerText = metal.price;
+
+      imgContainer.appendChild(icon);
+      metalIconContainer.appendChild(imgContainer);
+      metalIconContainer.appendChild(metalInfoContainer);
+      metalInfoContainer.appendChild(name);
+      metalInfoContainer.appendChild(symbol);
+      metalItemContainer.appendChild(metalIconContainer);
+      metalItemContainer.appendChild(price);
+    });
+  }
+}
+  getMetalPrice = async (symbol) => {
+    const metalUrl = `https://api.gold-api.com/price/${symbol}`;
+    try {
+      const responce = await fetch(metalUrl);
+      const data = await responce.json();
+      return data;
+    } catch (Error) {
+      console.log(`API Failed ${Error}`);
+    }
+  };
+
+  const setMetalPrice=()=>{
+    metals.forEach(async (item)=>{
+      const result=await getMetalPrice(item.symbol);
+      item.price= result.price;
+      
+    })  
+  }
+const metals = [
+  {
+    icon: "./Assets/Commodities/Icons/GoldIcon.svg",
+    name: "GOLD",
+    symbol: "XAU",
+    price: "",
+  },
+  {
+    icon: "./Assets/Commodities/Icons/SilverIcon.svg",
+    name: "SILVER",
+    symbol: "XAG",
+    price: "",
+  },
+  {
+    icon: "./Assets/Commodities/Icons/CopperIcon.svg",
+    name: "Copper",
+    symbol: "HG",
+    price: "",
+  },
+];
+
+const metalList = new MetalList(metals, ".metalContainer");
+setMetalPrice();
+metalList.rendering();
+const imgset = document.getElementsByClassName("metal-leftside-container")[1];
+const img = imgset.querySelector("div");
+img.style.filter = "grayscale(100%)"; // example filter

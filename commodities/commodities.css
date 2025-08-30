@@ -1,0 +1,59 @@
+.metalContainer{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    gap: 22px;
+
+}
+.metalItemContainer{
+    width: 100%;
+    border: 0.1px solid #b3b3b3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 12px;
+    border-radius: 10px;
+    
+}
+.metal-leftside-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+}
+.metal-info{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.metal-price{
+    font-size: 80%;
+    font-weight: 600;
+}
+.metal-name{
+    font-size: 80%;
+    font-weight: 600;
+}
+.metal-symbol{
+    font-size: 60%;
+    font-weight: 400;
+}
+
+.img-container{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #483512;
+}
+
+div+.img-container{
+    background-color: red;
+    border: 5px solid green;
+}
