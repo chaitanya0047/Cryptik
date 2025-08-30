@@ -6,81 +6,164 @@
 }
 body,
 html {
-  width: 100%;
-  height: 100vh;
-  background-color: var(--background);
-  /* overflow: hidden; */
-  /* overflow: hidden; */
+	width: 100%;
+	background-color: var(--background);
+		position: relative;
 }
 
 :root {
-  --color-primary:#236AEE;
-  --color-text:#999999;
-  --background:#131313;
-  --gradient-heading:linear-gradient(90deg, #363636 0%, #706F6F 100%);
-  
+	--color-primary:#236AEE;
+	--color-text:#999999;
+	--background:#131313;
+	--gradient-heading:linear-gradient(90deg, #363636 0%, #706F6F 100%);
+
 }
 body.darktheme{
-  --color-primary: #236AEE; /* keep primary consistent */
-  --color-text: #222222;    /* darker text for light bg */
-  --background:#ffff;    /* light background */
-  --gradient-heading: linear-gradient(90deg, #EDEDED 0%, #CFCFCF 100%);
+	--color-primary: #236AEE; /* keep primary consistent */
+	--color-text: #222222;    /* darker text for light bg */
+	--background:#ffff;    /* light background */
+	--gradient-heading: linear-gradient(90deg, #EDEDED 0%, #CFCFCF 100%);
 
 }
 
 .mainContainer{
 	display: flex;
+		gap: 16px;
 	width: 100%;
+		height: 100vh;
 }
 .leftside{
-	display: flex;
+	/* display: flex;
 	flex-direction: column;
 	width: 18%;
-	/* height: 100%; */
-  height: 100vh;
-  position: relative;
-  border-right:1px solid var(--color-text) ;
-  /* gap: 50px; */
-  gap: 28px;
-  transition: width 0.4s ease;
-  padding: 30px 0 72px 63px;
+		height: 100vh;
+		position: relative;
+		border-right:1px solid var(--color-text) ;
+		gap: 28px;
+		transition: width 0.4s ease;
+		padding: 30px 0 72px 63px; */
 
+			width: 20%;
+				padding: 32px 0 32px 36px;
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+				gap: 12px;
+					position: relative;
+						border-right:1px solid #2c2c2c ;
+							overflow: hidden;
+								background-color: #101010;
 }
+
 .rightContainer{
-	width: 82%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
-  /* position: relative; */
 	gap: 16px;
-	padding: 30px 18px 20px 20px;
-	/* overflow-y: auto; */
-  /* height: 100vh; */
+		padding: 16px;
+			padding-left: 0;
+		overflow-y: auto;
 }
+
+
 
 .grid {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 0.65fr ;
-  grid-gap: 12px 16px;
-  grid-template-areas: 
-   "box1 box2"
-   "box1 box3"
-   "box4 box3"
-    ;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+	grid-template-rows: repeat(3, 1fr); /* 3 equal rows */
+	gap: 12px; /* spacing between blocks */
+	height: 100%;
+	max-height: 100%;
+}
+
+/* Graph: 2 cols, 3 rows */
+.graph {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+	grid-column: 1 / span 2; /* takes col1+2 */
+	grid-row: 1 / span 2; /* takes all 3 rows */
+	position: relative;
+	overflow: hidden;
+		padding: 16px;
+		gap:14px;
+}
+
+.graphTitle{
+	width: 100%;
+		z-index: 5;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+		color: white;
+		padding: 12px;
+}
+.currency{
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	justify-content: center;
+}
+.currencyName{
+	display: flex;
+	gap: 4px;
+	flex-direction: column;
 }
 
 
-.graph{
-  background-color: var(--color-primary);
-  grid-area: box1;
-  border-radius: 10px;
+
+.currencyPrice{
+	font-size: 24px;
+	font-weight: 700;
 }
-.cardFront{
-  grid-area: box2;
+.graphBody{
+	width: 100%;
+	height: 100%;
 }
-.topCurrencies{
-  grid-area: box3;
+.blur{
+	position: absolute;
+	width: 100%;
 }
-.metalContainer{
-  grid-area: box4;
+
+.orangeBlur{
+	top: -30%;
+	left: -30%;
+}
+
+.greenBlur{
+	bottom: -30%;
+	right: -30%;
+}
+
+/* Card Front: 1 col, 2 rows */
+.cardFront {
+
+	grid-column: 3; /* only col3 */
+	grid-row: 1 / span 2; /* first 2 rows */
+}
+
+/* Metal Container: 2 cols, 1 row */
+.metalContainer {
+	grid-column: 1 / span 2; /* bottom left */
+	grid-row: 3; 
+}
+
+/* Top Currency: 1 col, 2 rows */
+.topCurrencies {
+	height: 100%;
+	width: 100%;
+	grid-column: 3; /* last column */
+	grid-row: 2 / span 2; /* last 2 rows */
+}
+
+
+
+
+
+/* //card spotlight */
+
+.card-spotlight { position: relative; border-radius: 1.5rem; border: 1px solid #9e810c; background-color: #111; padding: 2rem; overflow: hidden; --mouse-x: 50%; --mouse-y: 50%; --spotlight-color: rgba(255, 255, 255, 0.05); } .card-spotlight::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 80%); opacity: 0; transition: opacity 0.5s ease; pointer-events: none; } .card-spotlight:hover::before, .card-spotlight:focus-within::before { opacity: 1;
 }

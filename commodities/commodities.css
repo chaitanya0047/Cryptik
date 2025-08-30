@@ -1,59 +1,66 @@
 .metalContainer{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    gap: 22px;
-
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: white;
+	gap: 16px;
 }
+
 .metalItemContainer{
-    width: 100%;
-    border: 0.1px solid #b3b3b3;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 12px;
-    border-radius: 10px;
-    
+	width: 100%; 
+		border: 1px solid #2C2C2C;
+			height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+		flex-direction: column;
+		gap: 12px;
+		border-radius: 8px;
+	padding: 16px;
 }
-.metal-leftside-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
 
+.metal-leftside-container{
+	display: flex;
+	align-items: center;
+		flex-direction: column;
+	justify-content: center;
+	gap: 12px;
 }
+
 .metal-info{
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+	display: flex;
+	flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	gap: 6px;
 }
 .metal-price{
-    font-size: 80%;
-    font-weight: 600;
+	font-size: 24px;
+	font-weight: 600;
 }
 .metal-name{
-    font-size: 80%;
-    font-weight: 600;
+	font-size: 14px;
+	font-weight: 600;
 }
 .metal-symbol{
-    font-size: 60%;
-    font-weight: 400;
+	font-size: 10px;
+	font-weight: 400;
+	color: #b3b3b3b5;
 }
 
 .img-container{
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    background-color: #483512;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	background-color: #483512;
 }
 
 div+.img-container{
-    background-color: red;
-    border: 5px solid green;
+	background-color: red;
+	border: 5px solid green;
 }
