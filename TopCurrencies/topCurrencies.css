@@ -1,74 +1,76 @@
 .topCurrencies {
-    width: 100%;
-    border: 1px solid rgba(44, 44, 44, 0.88);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: white;
-    padding: 6px;
-    border-radius: 8px;
-    gap: 16px;
-
+	width: 100%;
+	border: 1px solid rgba(44, 44, 44, 0.88);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	color: white;
+	padding: 16px;
+	border-radius: 8px;
+	gap: 16px;
 }
 .currencyHeading {
-    background: var(--gradient-heading);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: Inter;
-font-size: 20px;
+	background: var(--gradient-heading);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-family: Inter;
+font-size: 18px;
 font-style: normal;
 font-weight: 600;
 line-height: 100%; /* 20px */
 letter-spacing: -0.4px;
 }
 .currencyContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+    height: 100%;
 }
 
 .currency-Item-Container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(44, 44, 44, 0.88);
-    padding: 10px 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid rgba(44, 44, 44, 0.88);
+	background: #1f1d1f;
+	height: 100%;
+    padding: 8px 16px;
 }
 .currency-left-container {
-    width: 36%;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    gap: 24px;
+	width: 36%;
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	gap: 8px;
 
 }
 .symbol-container {
-    width: 35%;
-    display: flex;
-    align-items: start;
-    justify-content: start;
+	width: 20%;
+	display: flex;
+	align-items: start;
+	justify-content: center;
 }
 .price-container {
-    width: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: start;
+	width: 25%;
+	display: flex;
+	align-items: center;
+	justify-content: start;
 }
 .currency-symbol {
-    font-size: 12px;
-    font-weight: 500;
-    color: #667085;
+	font-size: 12px;
+	font-weight: 500;
+	color: #667085;
 }
 .currency-name {
-    font-size: 12px;
-    font-weight: 500;
+	font-size: 12px;
+	font-weight: 500;
 }
 
 .currency-price {
-    font-size: 14px;
-    font-weight: 700;
+	font-size: 14px;
+	font-weight: 700;
 }
 .currency-icon{
-    width: 34px;
-    height: 34px;
+	width: 34px;
+	height: 34px;
 }

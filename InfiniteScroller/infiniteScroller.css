@@ -1,175 +1,93 @@
 .container{
-    display: flex;
-    gap: 22px;
-    justify-content: space-between;
-    /* padding: 42px 0; */
-    /* border: 5px solid green; */
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	align-items: center;
 }
 .coinItemContainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0.1px solid #b3b3b3;
-    gap: 38px;
-    border-radius: 10px;
-    padding: 10px;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 80%;
+	gap: 32px;
+	justify-content: space-between;
+	border: 0.1px solid #2C2C2C;
+	border-radius: 8px;
+	padding: 0px 16px;
 }
 .iconContainerCoin{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
 }
 .coin-info{
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 }
 .coin-name{
-    color: var(--Text-100, #FFF);
-font-family: Poppins;
-font-size: 18px;
+color: var(--Text-100, #FFF);
+font-size: 14px;
 font-style: normal;
 font-weight: 600;
-line-height: 100%; /* 18px */
+line-height: 100%; 
 }
 .coin-price{
-    color: var(--Text-100, #FFF);
-font-family: Poppins;
-font-size: 20px;
+	color: var(--Text-100, #FFF);
+font-size: 16px;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
 letter-spacing: 0.4px;
 }
 .coin-symbol{
-    color: var(--Text-100, #FFF);
-font-family: Poppins;
-font-size: 14px;
+	color: #b3b3b3b5;
+font-size: 10px;
 font-style: normal;
 font-weight: 400;
 line-height: 100%; 
 }
 .coin-icon{
-    width: 36px;
-    height: 36px;
+	width: 42px;
 }
-
-
 
 
 .marquee {
-    display: flex;
-    block-size: var(--marquee-item-height);
-    position: relative;
-    overflow-x: hidden;
-    mask-image: linear-gradient(to right,
-            hsl(0 0% 0% / 0),
-            hsl(0 0% 0% / 1) 20%,
-            hsl(0 0% 0% / 1) 80%,
-            hsl(0 0% 0% / 0));
-
-
-            overflow-y: hidden;
+  width: 100%;
+  max-width: 1536px;
+  margin-inline: auto;
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0)
+  );
 }
 
-.marquee--8 {
-    --marquee-item-width: 560;
-    --marquee-item-height: 100px;
-    --marquee-duration: 36s;
-    --marquee-items: 8;
+@keyframes scrollLeft {
+  to {
+    left: calc(var(--item-width) * -1);
+  }
 }
 
 .marquee__item {
-    position: absolute;
-    scale: 1.4;
-    width: var(--marquee-item-width);
-    height: var(--marquee-item-height);
+  width: var(--item-width, 300px);
+  height: 100px;
+  position: absolute;
+  left: max(calc(var(--item-width) * var(--total-items)), 100%);
+
+  animation-name: scrollLeft;
+  animation-duration: var(--duration, 120s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  animation-delay: calc(
+    var(--duration, 120s) / var(--total-items) *
+    (var(--total-items) - var(--item-index)) * -1
+  );
 }
-
-.marquee__item:nth-child(4n) {
-    border-top-right-radius: 1rem;
-}
-
-.marquee__item:nth-child(4n + 1) {
-    border-bottom-right-radius: 1rem;
-}
-
-.marquee__item:nth-child(4n + 2) {
-    border-bottom-left-radius: 1rem;
-}
-
-.marquee__item:nth-child(4n + 3) {
-    border-top-left-radius: 1rem;
-}
-
-.marquee--8 .marquee__item:nth-of-type(1) {
-    --marquee-item-index: 1;
-}
-
-.marquee--8 .marquee__item:nth-of-type(2) {
-    --marquee-item-index: 2;
-}
-
-.marquee--8 .marquee__item:nth-of-type(3) {
-    --marquee-item-index: 3;
-}
-
-.marquee--8 .marquee__item:nth-of-type(4) {
-    --marquee-item-index: 4;
-}
-
-.marquee--8 .marquee__item:nth-of-type(5) {
-    --marquee-item-index: 5;
-}
-
-.marquee--8 .marquee__item:nth-of-type(6) {
-    --marquee-item-index: 6;
-}
-
-.marquee--8 .marquee__item:nth-of-type(7) {
-    --marquee-item-index: 7;
-}
-
-.marquee--8 .marquee__item:nth-of-type(8) {
-    --marquee-item-index: 8;
-}
-
-/* Keyframes for right-to-left animation */
-@keyframes go-right-to-left {
-    0% {
-        inset-inline-start: calc(100% + var(--marquee-item-width));
-    }
-
-    100% {
-        inset-inline-start: calc(var(--marquee-item-width) * -1);
-    }
-}
-
-/* Keyframes for left-to-right animation */
-@keyframes go-left-to-right {
-    0% {
-        inset-inline-end: calc(100% + var(--marquee-item-width));
-    }
-
-    100% {
-        inset-inline-end: calc(var(--marquee-item-width) * -1);
-    }
-}
-
-/* Right-to-left animation for first marquee */
-.marquee--right-to-left .marquee__item {
-    --marquee-item-offset: calc(100% + var(--marquee-item-width));
-    --marquee-delay: calc(var(--marquee-duration) / var(--marquee-items) * (var(--marquee-items) - var(--marquee-item-index)) * -1);
-    inset-inline-start: var(--marquee-item-offset);
-    animation: go-right-to-left linear var(--marquee-duration) var(--marquee-delay, 0s) infinite;
-}
-
-/* Left-to-right animation for second marquee */
-.marquee--left-to-right .marquee__item {
-    --marquee-item-offset: calc(100% + var(--marquee-item-width));
-    --marquee-delay: calc(var(--marquee-duration) / var(--marquee-items) * (var(--marquee-items) - var(--marquee-item-index)) * -1);
-    inset-inline-end: var(--marquee-item-offset);
-    animation: go-left-to-right linear var(--marquee-duration) var(--marquee-delay, 0s) infinite;
-}
-
